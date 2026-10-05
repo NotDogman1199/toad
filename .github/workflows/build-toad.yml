@@ -23,8 +23,22 @@ jobs:
       - name: Install cargo-skyline
         run: cargo install cargo-skyline --version 3.5.0 --locked
 
-      - name: Download skyline stdlib
-        run: cargo skyline update-std
+      - name: Download skyline stdlib (without the rate-limited GitHub API)
+        run: |
+          # Same steps as "cargo skyline update-std", done by hand
+          git clone -q --filter=tree:0 --no-checkout --single-branch --branch skyline https://github.com/skyline-rs/rust-src.git /tmp/rs-history
+          NIGHTLY="nightly-$(TZ=UTC git -C /tmp/rs-history log --author=bors -1 --format=%ad --date=format-local:%Y-%m-%d)"
+          echo "Base toolchain: $NIGHTLY"
+          rustup toolchain add "$NIGHTLY" --profile minimal
+          BASE="$(rustc +"$NIGHTLY" --print sysroot)"
+          SKY="$HOME/.cargo/skyline/toolchain/skyline"
+          rm -rf "$SKY"
+          mkdir -p "$(dirname "$SKY")"
+          cp -r "$BASE" "$SKY"
+          rm -rf "$SKY/lib/rustlib/src"
+          mkdir -p "$SKY/lib/rustlib/src"
+          git clone -q --recurse-submodules --shallow-submodules --depth 1 --branch skyline https://github.com/skyline-rs/rust-src.git "$SKY/lib/rustlib/src/rust"
+          rustup toolchain link skyline-v3 "$SKY"
 
       - name: Build plugin
         run: cargo skyline build --release --features="main_nro"
