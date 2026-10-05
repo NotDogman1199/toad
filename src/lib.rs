@@ -397,4 +397,6 @@ pub extern "C" fn main() {
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_captaintoad");
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_latios");
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_latias");
+    the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_lati"), "z08_f_pikachu");
+}
 }
