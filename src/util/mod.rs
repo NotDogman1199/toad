@@ -744,7 +744,7 @@ pub(crate) unsafe fn is_tap_djc(boma: &mut smash::app::BattleObjectModuleAccesso
 
 #[inline(always)]
 pub(crate) unsafe fn is_mechanics_enabled() -> bool {
-	return true;
+	return false; // Toad-only build: keep Ultimate S's jab mechanic off for everyone
 }
 
 pub(crate) unsafe fn reload_config_values() -> () {
