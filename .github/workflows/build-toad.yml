@@ -1,0 +1,42 @@
+name: Build Toad-only plugin
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout source code only (skips the 3 GB romfs folder)
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            src
+          sparse-checkout-cone-mode: true
+
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          targets: aarch64-unknown-linux-gnu
+
+      - name: Install cargo-skyline
+        run: cargo install cargo-skyline --version 3.5.0 --locked
+
+      - name: Download skyline stdlib
+        run: cargo skyline update-std
+
+      - name: Build plugin
+        run: cargo skyline build --release --features="main_nro"
+
+      - name: Rename output to plugin.nro
+        run: |
+          mkdir out
+          cp "$(find target -path '*release*' -name 'libplugin.nro' | head -n 1)" out/plugin.nro
+
+      - name: Upload plugin.nro
+        uses: actions/upload-artifact@v4
+        with:
+          name: toad-only-plugin
+          path: out/plugin.nro
+          if-no-files-found: error
