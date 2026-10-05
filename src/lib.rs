@@ -395,4 +395,6 @@ pub extern "C" fn main() {
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_toadette");
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_toadsworth");
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_captaintoad");
+    the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_latios");
+    the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_latias");
 }
