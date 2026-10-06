@@ -403,4 +403,5 @@ pub extern "C" fn main() {
     the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_lati"), "z08_f_pikachu");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_phosphora"), "z23_f_pit");
 	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_peppy");
+	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_armstrong"), "zz09_f_armstrong");
 }
