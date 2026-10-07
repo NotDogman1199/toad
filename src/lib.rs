@@ -400,9 +400,16 @@ pub extern "C" fn main() {
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_captaintoad");
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_latios");
     the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_latias");
-    the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_lati"), "z08_f_pikachu");
+    the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_lati"), "z23_f_pit");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_phosphora"), "z23_f_pit");
 	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_peppy");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_armstrong"), "zz09_f_armstrong");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_samus"), "z04_f_samus");
+    // Mecha Sonic: add the missing stream set for his victory theme
+    the_csk_collection_api::add_stream_set_entry_info(&the_csk_collection_api::StreamSetEntry {
+        stream_set_id: smash::hash40("set_z04_f_mecha"),
+        info0: the_csk_collection_api::Hash40Type::Overwrite(smash::hash40("info_z04_f_mecha")),
+        ..Default::default()
+    });
+    the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_mecha"), "z04_f_mecha");
 }
