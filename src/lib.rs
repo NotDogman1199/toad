@@ -440,5 +440,4 @@ pub extern "C" fn main() {
         duration_ms: 7659,
         duration_sample: 359424,
     });
-    the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_chaos"), "zc72_f_chaos");
 }
