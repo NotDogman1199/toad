@@ -405,39 +405,4 @@ pub extern "C" fn main() {
 	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_peppy");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_armstrong"), "zz09_f_armstrong");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_samus"), "z04_f_samus");
-	// Chaos victory theme, registered here instead of in his own plugin
-    the_csk_collection_api::add_bgm_db_entry_info(&the_csk_collection_api::BgmDatabaseRootEntry {
-        ui_bgm_id: smash::hash40("ui_bgm_zc72_f_chaos"),
-        clone_from_ui_bgm_id: Some(smash::hash40("ui_bgm_z47_f_sonic")),
-        stream_set_id: the_csk_collection_api::Hash40Type::Overwrite(smash::hash40("set_zc72_f_chaos")),
-        ..Default::default()
-    });
-    the_csk_collection_api::add_stream_set_entry_info(&the_csk_collection_api::StreamSetEntry {
-        stream_set_id: smash::hash40("set_zc72_f_chaos"),
-        info0: the_csk_collection_api::Hash40Type::Overwrite(smash::hash40("info_zc72_f_chaos")),
-        ..Default::default()
-    });
-    the_csk_collection_api::add_assigned_info_entry_info(&the_csk_collection_api::AssignedInfoEntry {
-        info_id: smash::hash40("info_zc72_f_chaos"),
-        stream_id: the_csk_collection_api::Hash40Type::Overwrite(smash::hash40("stream_zc72_f_chaos")),
-        condition: the_csk_collection_api::Hash40Type::Overwrite(smash::hash40("sound_condition_none")),
-        condition_process: the_csk_collection_api::Hash40Type::Overwrite(smash::hash40("sound_condition_process_add")),
-        change_fadeout_frame: the_csk_collection_api::IntType::Overwrite(60),
-        menu_change_fadeout_frame: the_csk_collection_api::IntType::Overwrite(60),
-        ..Default::default()
-    });
-    the_csk_collection_api::add_stream_property_entry_info(&the_csk_collection_api::StreamPropertyEntry {
-        stream_id: smash::hash40("stream_zc72_f_chaos"),
-        data_name0: the_csk_collection_api::StringType::Overwrite(the_csk_collection_api::CStrCSK::new("zc72_f_chaos")),
-        ..Default::default()
-    });
-    the_csk_collection_api::add_new_bgm_property_entry(&smash_bgm_property::BgmPropertyEntry {
-        stream_name: hash40::Hash40::new("zc72_f_chaos"),
-        loop_start_ms: 0,
-        loop_start_sample: 0,
-        loop_end_ms: 0,
-        loop_end_sample: 0,
-        duration_ms: 7659,
-        duration_sample: 359424,
-    });
 }
