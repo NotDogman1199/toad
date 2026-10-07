@@ -405,5 +405,5 @@ pub extern "C" fn main() {
 	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_peppy");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_armstrong"), "zz09_f_armstrong");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_samus"), "z04_f_samus");
-	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_chaos"), "z72_f_chaos");
+	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_chaos"), "zz09_f_armstrong");
 }
