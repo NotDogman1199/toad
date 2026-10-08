@@ -412,4 +412,7 @@ pub extern "C" fn main() {
         ..Default::default()
     });
     the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_mecha"), "z04_f_mecha");
+	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_hilda");
+    the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_phosphora");
+    the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_kuribob");
 }
