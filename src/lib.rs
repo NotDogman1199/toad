@@ -381,6 +381,7 @@ pub extern "C" fn main() {
             extern "C" { fn allow_ui_chara_hash_online(ui_chara_hash: u64); }
             allow_ui_chara_hash_online(0xda4cbcb12); //toad
 			allow_ui_chara_hash_online(smash::hash40("ui_chara_peppy")); //peppy
+			allow_ui_chara_hash_online(smash::hash40("ui_chara_rayman")); //rayman
         }
     }
     // Shared code that Toad's moveset relies on
@@ -391,6 +392,8 @@ pub extern "C" fn main() {
     println!("[Toad only] toad installed");
     peppy::install();
     println!("[Toad only] peppy installed");
+    rayman::install();
+    println!("[Toad only] rayman installed");
 
     param_cache::install();
 
@@ -403,6 +406,7 @@ pub extern "C" fn main() {
     the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_lati"), "z08_f_pikachu");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_phosphora"), "z23_f_pit");
 	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_peppy");
+	the_csk_collection_api::add_narration_characall_entry("vc_narration_characall_rayman");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_armstrong"), "zz09_f_armstrong");
 	the_csk_collection_api::set_fighter_jingle(smash::hash40("ui_chara_samus"), "z04_f_samus");
     // Mecha Sonic: add the missing stream set for his victory theme
