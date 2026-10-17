@@ -1082,7 +1082,7 @@ pub static REGISTRY: Lazy<ModRegistry> = Lazy::new(|| ModRegistry::fill());
 )]*/
 pub(crate) fn get_marked_costumes(char_folder: &str, marker_name: &str) -> Vec<usize> {
     let marked_slots = REGISTRY.get_marked_costumes(char_folder, marker_name);
-    println!("{}-{} slots - {:?}", char_folder, marker_name, marked_slots);
+    // println!("{}-{} slots - {:?}", char_folder, marker_name, marked_slots); // disabled: spammed every frame and filled Eden's log
 	marked_slots
 }
 
@@ -1092,7 +1092,7 @@ pub(crate) fn get_marked_costumes(char_folder: &str, marker_name: &str) -> Vec<u
 )]*/
 pub(crate) fn get_lowest_marked_costume(char_folder: &str, marker_name: &str) -> u8 {
     let lowest_marked = REGISTRY.get_lowest_marked_costume(char_folder, marker_name);
-    println!("{}-{} lowest slot - {:?}", char_folder, marker_name, lowest_marked);
+    // println!("{}-{} lowest slot - {:?}", char_folder, marker_name, lowest_marked); // disabled: log spam
 	lowest_marked
 }
 
